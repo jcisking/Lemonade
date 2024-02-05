@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,6 +19,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -99,14 +102,20 @@ fun LemonadeImageAndInstruction(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.lemon_drink),
-            modifier = Modifier
-                .padding(bottom = 28.dp)
-                .background(Color.Green, RoundedCornerShape(100f))
-                .padding(40.dp),
-            contentDescription = null
-        )
+        Button(
+            onClick = { /*TODO*/ },
+            shape = RoundedCornerShape(100f),
+            contentPadding = PaddingValues(0.dp),
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.lemon_drink),
+                modifier = Modifier
+                    .background(Color.Green)
+                    .padding(40.dp),
+                contentDescription = null
+            )
+        }
         Text(text = stringResource(id = R.string.full_glass_string))
     }
 }
