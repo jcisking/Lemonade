@@ -11,7 +11,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -51,22 +54,35 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @Preview
-fun LemonadeApp() {
-    LemonadeTopAppBar()
-    LemonadeImageAndInstruction(
-        modifier = Modifier
-        .wrapContentSize()
-    )
+fun LemonadeApp(
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.background(Color.Magenta),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        LemonadeTopAppBar()
+        Spacer(modifier = Modifier.fillMaxSize(.3f))
+        LemonadeImageAndInstruction(
+            modifier = Modifier
+                .background(Color.Blue)
+            
+
+        )
+    }
 
 }
 
 @Composable
-fun LemonadeTopAppBar() {
-    Box(
-        modifier = Modifier.background(Color.Yellow)
-    ) {
-        Text(text = stringResource(id = R.string.top_app_bar))
-    }
+fun LemonadeTopAppBar(
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = stringResource(id = R.string.top_app_bar),
+        color = Color.Black,
+        modifier = modifier
+            .background(Color.Yellow)
+    )
 }
 
 @Composable
