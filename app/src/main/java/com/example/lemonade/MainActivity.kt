@@ -29,8 +29,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.lemonade.ui.theme.LemonadeTheme
 
 class MainActivity : ComponentActivity() {
@@ -79,9 +83,13 @@ fun LemonadeTopAppBar(
 ) {
     Text(
         text = stringResource(id = R.string.top_app_bar),
-        color = Color.Black,
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
         modifier = modifier
+            .fillMaxWidth()
             .background(Color.Yellow)
+            .padding(top = 15.dp, bottom = 15.dp)
     )
 }
 
