@@ -62,16 +62,13 @@ fun LemonadeApp(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.background(Color.Magenta),
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LemonadeTopAppBar()
-        Spacer(modifier = Modifier.fillMaxSize(.3f))
+        Spacer(modifier = Modifier.fillMaxSize(.2f))
         LemonadeImageAndInstruction(
             modifier = Modifier
-                .background(Color.Blue)
-            
-
         )
     }
 
@@ -105,7 +102,7 @@ fun LemonadeImageAndInstruction(
         Image(
             painter = painterResource(id = R.drawable.lemon_drink),
             modifier = Modifier
-                .padding(bottom = 24.dp)
+                .padding(bottom = 28.dp)
                 .background(Color.Green, RoundedCornerShape(100f))
                 .padding(40.dp),
             contentDescription = null
