@@ -96,17 +96,26 @@ fun LemonadeImageAndInstruction(
         Pair(R.drawable.lemon_squeeze, R.string.lemon_squeeze_string),
         Pair(R.drawable.lemon_drink, R.string.lemon_drink_string),
         Pair(R.drawable.lemon_restart, R.string.lemon_restart_string)
-        )
+    )
     var imageTextPair by remember { mutableStateOf(list[0]) }
+    var ranNum by remember { mutableStateOf(1) }
 
     val callBack = {
         if (imageTextPair == list[0]) {
             imageTextPair = list[1]
-        }
-        else if (imageTextPair == list[1]) {
-            imageTextPair = list[2]
+            ranNum = (3..5).random()
+        } else if (imageTextPair == list[1]) {
+            ranNum--
+            if (ranNum == 0) {
+                imageTextPair = list[2]
+            }
+        } else if (imageTextPair == list[2]) {
+            imageTextPair = list[3]
+        } else {
+            imageTextPair = list[0]
         }
     }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -129,4 +138,5 @@ fun LemonadeImageAndInstruction(
         Text(text = stringResource(id = imageTextPair.second))
     }
 }
+
 
