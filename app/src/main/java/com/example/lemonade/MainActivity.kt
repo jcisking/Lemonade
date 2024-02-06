@@ -100,19 +100,21 @@ fun LemonadeImageAndInstruction(
     var imageTextPair by remember { mutableStateOf(list[0]) }
     var ranNum by remember { mutableStateOf(1) }
 
+
+
     val callBack = {
-        if (imageTextPair == list[0]) {
-            imageTextPair = list[1]
-            ranNum = (3..5).random()
-        } else if (imageTextPair == list[1]) {
-            ranNum--
-            if (ranNum == 0) {
-                imageTextPair = list[2]
+        when(imageTextPair) {
+            list[0] -> {
+                imageTextPair = list[1]
+                ranNum = (2..4).random()
             }
-        } else if (imageTextPair == list[2]) {
-            imageTextPair = list[3]
-        } else {
-            imageTextPair = list[0]
+            list[1] -> {
+                ranNum--
+                if (ranNum == 0) imageTextPair = list[2]
+            }
+            list[2] -> imageTextPair = list[3]
+
+            list[3] -> imageTextPair = list[0]
         }
     }
 
